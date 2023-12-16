@@ -1,0 +1,19 @@
+Package: mimiSBM
+Title: On teste la creation d'un package R avec Roxygen
+Version: 0.0.0.9000
+Authors@R: 
+    person("Kylliann", "De Santiago", , "kylliann.desantiago@univ-evry.fr", role = c("aut", "cre"))
+    person("Kylliann", "De Santiago", , "kylliann.desantiago@univ-evry.fr", role = c("aut", "cre"))
+    person("Kylliann", "De Santiago", , "kylliann.desantiago@univ-evry.fr", role = c("aut", "cre"))
+Description: What the package does (one paragraph).
+License: GPL-3
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
+Imports: 
+    magrittr,
+    stats
