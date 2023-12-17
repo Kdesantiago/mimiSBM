@@ -1,0 +1,26 @@
+---
+title: "mimiSBM"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{mimiSBM}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r}
+#devtools::load_all()
+#install.packages("pkgdown")
+#usethis::use_pkgdown()
+#pkgdown::build_site()
+```
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(mimiSBM)
+```
