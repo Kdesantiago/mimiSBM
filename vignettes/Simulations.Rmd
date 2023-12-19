@@ -1,0 +1,131 @@
+---
+title: "Simulations"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Simulations}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r}
+#devtools::load_all()
+#install.packages("pkgdown")
+#usethis::use_pkgdown()
+#pkgdown::build_site()
+```
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(mimiSBM)
+```
+
+
+# Data generation
+
+## First simulation: no label-switching
+
+### Setup of parameters
+First of all, we'll start by specifying our parameters for simulating the data:
+`N` Number of observations
+`V` Number of views
+`K` Vector of size Q, indicate the number of clusters in each component.
+`pi_k` Vector of proportions of observations across the real clusters.
+`rho` Vector of proportion of views across components.
+`sorted` Boolean for simulation reordering (clusters and components membership).
+`p_switch` probability of label-switching, if NULL no perturbation between true clustering and the connectivity of individuals.
+
+```{r}
+set.seed(42)
+N <- 100
+V <- 10
+K <- c(2,3,4)
+pi_k <- rep(1/5,5) # Here the true number of clusters will be equal to 5
+rho <- rep(1/length(K),length(K))
+sorted = TRUE
+p_switch = NULL
+```
+
+
+### Simulation 
+
+```{r}
+res <- rSMB_partition(N = N,V = V,K = K,pi_k = pi_k,rho = rho,sorted = sorted,p_switch = p_switch)
+```
+
+With the `plot_adjacency`function, adjacency matrices can be shown, and and linked to the parameters used for simulation.
+```{r}
+plot_adjacency(res$simulation$A)
+```
+
+In this simulation, we have 3 types of adjacency matrices, depending precisely on the mixture from which they are derived. From the `clusters` variable in the simulation we can see the link between true clustering and that partially accessible through simulated views.
+
+```{r}
+(clust <- res$params$clusters)
+```
+
+This variable is difficult to understand at first glance, so we'll explain its interpretation below.
+
+```{r}
+length(clust)
+```
+
+This variable is a list with as many arguments as the number of components.
+
+Let's take the example of the 1st element in the list:
+```{r}
+clust[[1]]
+```
+
+The adjacency matrices resulting from the 1st component will therefore have 2 clusters.
+In addition, based on true clustering, we associate the cluster observed in this component: 
+- Clusters 1, 2 and 3 are in fact a single cluster, cluster 1, of this component.
+- Cluster 4 and 5 correspond to the cluster 2 for this component.
+
+If we look at the connection tensor linked to this simulation, we find the main structures observed previously.
+```{r}
+sapply(1:3,function(s){image(res$params$alpha_klq[,,s])})
+```
+
+## Second simulation: label-switching
+
+### Setup of parameters
+
+This time we'll set the label-switching to $10\%$, the probability that an individual will be associated with the wrong cluster when the adjacency matrix is created.
+```{r}
+set.seed(42)
+N <- 100
+V <- 10
+K <- c(2,3,4)
+pi_k <- rep(1/5,5) # Here the true number of clusters will be equal to 5
+rho <- rep(1/length(K),length(K))
+sorted = TRUE
+p_switch = 0.1
+```
+
+
+### Simulation 
+
+```{r}
+res <- rSMB_partition(N = N,V = V,K = K,pi_k = pi_k,rho = rho,sorted = sorted,p_switch = p_switch)
+```
+
+With the `plot_adjacency`function, adjacency matrices can be shown, and and linked to the parameters used for simulation.
+```{r}
+plot_adjacency(res$simulation$A)
+```
+
+Compared with the previous simulation, there's a clear disturbance in the adjacency matrices. However, the main structures are preserved.
+
+What's more, here we can still recognize these structures because the observations have been ordered according to their clusters. If we replace the parameter with `FALSE`, we'll not be able to recognize the structure easily.
+
+```{r}
+res <- rSMB_partition(N = N,V = V,K = K,pi_k = pi_k,rho = rho,sorted = FALSE,p_switch = p_switch)
+plot_adjacency(res$simulation$A)
+```
+
