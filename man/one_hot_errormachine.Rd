@@ -18,7 +18,7 @@ Z a matrix N x K One-Hot-Encoded by rows, where K is the number of clusters.
 One Hot Encoding with Error machine
 }
 \examples{
-Z <- sample(1:4,10,replace=T)
+Z <- sample(1:4,10,replace=TRUE)
 Z_OHE <- one_hot_errormachine(Z)
 print(Z_OHE)
 }

@@ -5,9 +5,8 @@
 #'
 #' @return Z a matrix N x K One-Hot-Encoded by rows, where K is the number of clusters.
 #' @export
-#'
 #' @examples
-#' Z <- sample(1:4,10,replace=T)
+#' Z <- sample(1:4,10,replace=TRUE)
 #' Z_OHE <- one_hot_errormachine(Z)
 #' print(Z_OHE)
 one_hot_errormachine <- function(Z,size=NULL){
@@ -33,8 +32,6 @@ one_hot_errormachine <- function(Z,size=NULL){
 #'
 #' @return A with 0 on each diagonal given the 3rd dimension.
 #' @export
-#'
-#' @examples
 diag_nulle<- function(A){
   # Permet de récupérer un tenseur avec un coef 0 sur la diagonale des deux premières dimensions
   V <- dim(A)[3]
@@ -51,8 +48,6 @@ diag_nulle<- function(A){
 #'
 #' @return a array or a squared matrix, with only upper-triangular coefficients with non-zero values
 #' @export
-#'
-#' @examples
 trig_sup<-function(A,transp=F,diag=T){
   #------------ Objectif ------------
   # Permet de récupérer la matrice - où le tenseur - triangulaire supérieure
@@ -84,8 +79,6 @@ trig_sup<-function(A,transp=F,diag=T){
 #'
 #' @return A_transposed, the transposed array according the third dimension
 #' @export
-#'
-#' @examples
 transpo<- function(A){
   #------------ Objectif ------------
   # Permet de transposer un tenseur sur les deux premières dimensions
@@ -97,6 +90,12 @@ transpo<- function(A){
   return(A)
 }
 
+#' Sort the clustering matrix
+#'
+#' @param Z a matrix N x K, with probabilities to belong of a cluster in rows for each observation.
+#'
+#' @return a sorted matrix 
+#' @export
 sort_Z <- function(Z){
   #------------ Objectif ------------
   # Permet de réordonner un vecteur de labels (one-hot encoded ou non)
@@ -119,7 +118,6 @@ sort_Z <- function(Z){
 #'
 #' @return  Z a matrix N x K One-Hot-Encoded by rows, where K is the number of clusters.
 #' @export
-#'
 #' @examples
 #' Z <- matrix(rnorm(12),3,4)
 #' Z_cem <- CEM(Z)
@@ -149,8 +147,7 @@ CEM <- function(Z){
 #' @return X with log_softmax function applied on each row
 #' @importFrom stats rnorm
 #' @export
-#'
-#' @examples
+#' @examples 
 #' set.seed(42)
 #' X <- matrix(rnorm(15,mean=5),5,3)
 #' log_X <- log(X)
@@ -172,3 +169,11 @@ log_Softmax <- function(log_X){
   return(X)
 }
 
+#' Calculation of Log multinomial Beta value.
+#'
+#' 
+#' @param x a vector
+#'
+#' @return sum(lgamma(x\[j\])) - lgamma(sum(x))
+#' @export 
+multinomial_lbeta_function <- function(x){sum(lgamma(x))-lgamma(sum(x))}

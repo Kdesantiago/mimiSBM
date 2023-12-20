@@ -9,6 +9,9 @@ CEM(Z)
 \arguments{
 \item{Z}{a matrix N x K, with probabilities to belong of a cluster in rows for each observation.}
 }
+\value{
+Z a matrix N x K One-Hot-Encoded by rows, where K is the number of clusters.
+}
 \description{
 Clustering Matrix : One hot encoding
 }

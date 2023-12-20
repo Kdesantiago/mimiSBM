@@ -1,11 +1,11 @@
 Package: mimiSBM
-Title: On teste la creation d'un package R avec Roxygen
+Title: Mixture of Multilayer Integrator Stochastic Block Models
 Version: 0.0.0.9000
-Authors@R: 
-    person("Kylliann", "De Santiago", , "kylliann.desantiago@univ-evry.fr", role = c("aut", "cre"))
-    person("Marie", "Szafranski", , "marie.szafranski@univ-evry.fr", role = c("aut"))
-    person("Christophe", "Ambroise", , "christophe.ambroise@univ-evry.fr", role = c("aut"))
-Description: What the package does (one paragraph).
+Authors@R: c(
+    person("Kylliann", "De Santiago", email="kylliann.desantiago@univ-evry.fr", role = c("aut","cre")),
+    person("Marie", "Szafranski", email="marie.szafranski@univ-evry.fr", role = "aut"),
+    person("Christophe", "Ambroise", email="christophe.ambroise@univ-evry.fr", role = "aut"))
+Description: Our approach uses a  mixture of multilayer Stochastic Block Models (SBM) to group co-membership matrices with similar information into components and to partition observations into different clusters.
 License: GPL-3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
@@ -15,5 +15,5 @@ Suggests:
     rmarkdown
 VignetteBuilder: knitr
 Imports: 
-    magrittr,
+    blockmodels,
     stats

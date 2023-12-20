@@ -122,10 +122,12 @@ plot_adjacency(res$simulation$A)
 
 Compared with the previous simulation, there's a clear disturbance in the adjacency matrices. However, the main structures are preserved.
 
-What's more, here we can still recognize these structures because the observations have been ordered according to their clusters. If we replace the parameter with `FALSE`, we'll not be able to recognize the structure easily.
+What's more, here we can still recognize these structures because the observations have been ordered according to their clusters. If we replace the parameter with `FALSE`, we'll not be able to recognize structures easily.
 
 ```{r}
 res <- rSMB_partition(N = N,V = V,K = K,pi_k = pi_k,rho = rho,sorted = FALSE,p_switch = p_switch)
 plot_adjacency(res$simulation$A)
 ```
+
+
 
