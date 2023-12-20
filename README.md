@@ -4,10 +4,9 @@ A  mixture of multilayer Stochastic Block Models (SBM) to group co-membership ma
 
 ## Installation
 
-Vous pouvez installer la version de développement depuis GitHub avec:
-
+This package can be installed from GitHub with :
 
 ```{R}
 # install.packages("remotes")
-remotes::install_github("votre-utilisateur/votre-package")
+remotes::install_github("Kdesantiago/mimiSBM")
 ```
