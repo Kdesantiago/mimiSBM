@@ -159,8 +159,13 @@ BayesianMixture_SBM_model <-function(A,K,Q,beta_0=rep(1/2,K),theta_0=rep(1/2,Q),
 #' @export
 #'
 #' @examples
+#' set.seed(42)
+#' K = c(2,3); pi_k = rep(1/4,4) ; rho = rep(1/2,2)
+#' res <- rSMB_partition(N = 50,V = 5,K = K ,pi_k = pi_k ,rho = rho,p_switch = 0.1)
+#' A = res$simulation$A ; Kset = 4 ; Qset = 2
+#' model <- mimiSBM(A,Kset,Qset,n_init = 1, Verbose=FALSE)
 
-mimiSBM <-function(A,Kset,Qset,beta_0=1/2,theta_0=1/2,eta_0=1/2,xi_0=1/2,criterion = "ILVB",tol=1e-3,iter_max=10,n_init = 1,alternate=T, Verbose=F,eps_conv=1e-4,type_init="SBM"){
+mimiSBM <-function(A,Kset,Qset,beta_0=1/2,theta_0=1/2,eta_0=1/2,xi_0=1/2,criterion = "ILVB",tol=1e-3,iter_max=10,n_init = 1,alternate=F, Verbose=F,eps_conv=1e-4,type_init="SBM"){
   nbCores = 1
   val_crit_best = -Inf
   val_crit = -Inf

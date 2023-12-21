@@ -4,7 +4,7 @@
 \alias{rMSBM}
 \title{Simulate data from the mimiSBM generative model.}
 \usage{
-rMSBM(N, V, alpha_klq, pi_k, rho, sorted = T, p_switch = NULL)
+rMSBM(N, V, alpha_klq, pi_k, rho, sorted = TRUE, p_switch = NULL)
 }
 \arguments{
 \item{N}{Number of individuals.}

@@ -1,11 +1,11 @@
 Package: mimiSBM
 Title: Mixture of Multilayer Integrator Stochastic Block Models
-Version: 0.0.0.9000
+Version: 0.0.1.1
 Authors@R: c(
     person("Kylliann", "De Santiago", email="kylliann.desantiago@univ-evry.fr", role = c("aut","cre")),
     person("Marie", "Szafranski", email="marie.szafranski@univ-evry.fr", role = "aut"),
     person("Christophe", "Ambroise", email="christophe.ambroise@univ-evry.fr", role = "aut"))
-Description: Our approach uses a  mixture of multilayer Stochastic Block Models (SBM) to group co-membership matrices with similar information into components and to partition observations into different clusters.
+Description: Our approach uses a  mixture of multilayer Stochastic Block Models to group co-membership matrices with similar information into components and to partition observations into different clusters.
 License: GPL-3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)

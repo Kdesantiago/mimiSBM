@@ -46,7 +46,7 @@ lab_switching <- function(Z,p_out=0.1){
 #' @importFrom stats rmultinom rbinom
 #' @export
 #---------------- Simulations basées sur le modèle ----------------
-rMSBM <- function(N, V,alpha_klq,pi_k,rho,sorted=T,p_switch=NULL){
+rMSBM <- function(N, V,alpha_klq,pi_k,rho,sorted=TRUE,p_switch=NULL){
   #------------ Objectif ------------
   # Simuler des données à partir du modèle génératif mimiSBM
 

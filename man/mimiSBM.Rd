@@ -16,7 +16,7 @@ mimiSBM(
   tol = 0.001,
   iter_max = 10,
   n_init = 1,
-  alternate = T,
+  alternate = F,
   Verbose = F,
   eps_conv = 1e-04,
   type_init = "SBM"
@@ -60,4 +60,11 @@ The best model, conditionnally to the criterion, and its parameters.
 mimiSBM is a model that allows both clustering of individuals and grouping of views by component.
 This Bayesian model estimates the probability of individuals belonging to each cluster (cluster crossing all views) and the membership component for all views.
 In addition, the connectivity tensor between classes, conditional on the components, is also estimated.
+}
+\examples{
+set.seed(42)
+K = c(2,3); pi_k = rep(1/4,4) ; rho = rep(1/2,2)
+res <- rSMB_partition(N = 50,V = 5,K = K ,pi_k = pi_k ,rho = rho,p_switch = 0.1)
+A = res$simulation$A ; Kset = 4 ; Qset = 2
+model <- mimiSBM(A,Kset,Qset,n_init = 1, Verbose=FALSE)
 }
