@@ -53,7 +53,10 @@ res <- rSMB_partition(N = N,V = V,K = K,pi_k = pi_k,rho = rho,sorted = sorted,p_
 
 With the `plot_adjacency`function, adjacency matrices can be shown, and and linked to the parameters used for simulation.
 ```{r}
-plot_adjacency(res$simulation$A)
+#plot_adjacency(res$simulation$A)
+image(res$simulation$A[,,1])
+image(res$simulation$A[,,3])
+image(res$simulation$A[,,10])
 ```
 
 In this simulation, we have 3 types of adjacency matrices, depending precisely on the mixture from which they are derived. From the `clusters` variable in the simulation we can see the link between true clustering and that partially accessible through simulated views.
@@ -110,7 +113,10 @@ res <- rSMB_partition(N = N,V = V,K = K,pi_k = pi_k,rho = rho,sorted = sorted,p_
 
 With the `plot_adjacency`function, adjacency matrices can be shown, and and linked to the parameters used for simulation.
 ```{r}
-plot_adjacency(res$simulation$A)
+#plot_adjacency(res$simulation$A)
+image(res$simulation$A[,,1])
+image(res$simulation$A[,,3])
+image(res$simulation$A[,,10])
 ```
 
 Compared with the previous simulation, there's a clear disturbance in the adjacency matrices. However, the main structures are preserved.
@@ -119,7 +125,10 @@ What's more, here we can still recognize these structures because the observatio
 
 ```{r}
 res <- rSMB_partition(N = N,V = V,K = K,pi_k = pi_k,rho = rho,sorted = FALSE,p_switch = p_switch)
-plot_adjacency(res$simulation$A)
+#plot_adjacency(res$simulation$A)
+image(res$simulation$A[,,1])
+image(res$simulation$A[,,3])
+image(res$simulation$A[,,10])
 ```
 
 
