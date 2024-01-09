@@ -10,6 +10,8 @@ License: GPL-3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
+URL: https://kdesantiago.github.io/mimiSBM/, https://github.com/Kdesantiago/mimiSBM
+BugReports: https://github.com/Kdesantiago/mimiSBM/issues
 Suggests: 
     knitr,
     rmarkdown
